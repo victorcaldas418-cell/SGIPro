@@ -1,0 +1,1255 @@
+INFO:     Will watch for changes in these directories: ['/Users/victorcaldas/Documents/SGI/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [36162] using StatReload
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36165]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57101 - "OPTIONS /api/auth/forgot-password HTTP/1.1" 200 OK
+[DEV] Link de reset para victor.caldas418@gmail.com: http://localhost:5173/redefinir-senha?token=ZyFGqmcLyWT3qn6YYBMOvvrBCusdx3KtKwCg9Vbj2lGpQP9q3Vt-e94OAVixLjiw
+INFO:     127.0.0.1:57101 - "POST /api/auth/forgot-password HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57126 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57126 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57126 - "OPTIONS /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57127 - "OPTIONS /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57128 - "OPTIONS /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57128 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57126 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57127 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57131 - "OPTIONS /api/auth/organizations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57131 - "POST /api/auth/organizations HTTP/1.1" 401 Unauthorized
+WARNING:  StatReload detected changes in 'app/core/security.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36165]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36253]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+get_current_user: no token provided
+INFO:     127.0.0.1:57165 - "POST /api/auth/organizations HTTP/1.1" 401 Unauthorized
+get_current_user: no token provided
+INFO:     127.0.0.1:57207 - "POST /api/auth/organizations HTTP/1.1" 401 Unauthorized
+WARNING:  StatReload detected changes in 'app/core/security.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36253]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Process SpawnProcess-3:
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+  File "/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/uvicorn/_compat.py", line 60, in asyncio_run
+    return loop.run_until_complete(main)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+  File "/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/uvicorn/config.py", line 439, in load
+    self.loaded_app = import_from_string(self.app)
+  File "/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/victorcaldas/Documents/SGI/backend/app/main.py", line 35, in <module>
+    from app.routes import auth, users
+  File "/Users/victorcaldas/Documents/SGI/backend/app/routes/auth.py", line 6, in <module>
+    from app.core.security import (
+  File "/Users/victorcaldas/Documents/SGI/backend/app/core/security.py", line 55, in <module>
+    request: Request,
+NameError: name 'Request' is not defined
+WARNING:  StatReload detected changes in 'app/core/security.py'. Reloading...
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36318]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+--- HEADERS RECEIVED ---
+host: localhost:8000
+user-agent: curl/8.7.1
+accept: application/json
+content-type: application/json
+authorization: Bearer FOO
+content-length: 2
+------------------------
+get_current_user: payload is None (decode failed)
+INFO:     127.0.0.1:57240 - "POST /api/auth/organizations HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57334 - "OPTIONS /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57334 - "POST /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57334 - "OPTIONS /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57336 - "OPTIONS /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57337 - "OPTIONS /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57337 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57334 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57336 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57346 - "POST /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57354 - "OPTIONS /api/auth/organizations HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+content-type: application/json
+sec-fetch-site: same-site
+origin: http://localhost:5173
+content-length: 161
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+referer: http://localhost:5173/
+sec-fetch-dest: empty
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjpudWxsLCJyb2xlIjoiYWdlbnQiLCJleHAiOjE3NzU3NjE0Mzd9.yu2uNtFiSHQENySBktygD8rwvvhN3npA_Y3FWa1WMZM
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57354 - "POST /api/auth/organizations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57356 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57355 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57354 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57358 - "OPTIONS /api/auth/select-org HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+content-type: application/json
+sec-fetch-site: same-site
+origin: http://localhost:5173
+content-length: 21
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+referer: http://localhost:5173/
+sec-fetch-dest: empty
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjE0ODh9.4Y0WitTM7lr16eQN-qbYQP4yEFqGmq01bImW4cqsfFo
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57358 - "POST /api/auth/select-org HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57360 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57359 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57358 - "GET /api/contracts/ HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'app/core/security.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36318]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36764]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/models/client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36764]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36768]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/models/client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36768]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36769]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/models/property.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36769]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36770]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/models/property.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36770]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36771]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/models/contract.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36771]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36772]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/routes/clients.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36772]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36773]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/routes/properties.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36773]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36775]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/routes/contracts.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36775]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36785]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/routes/users.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36785]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36786]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/routes/users.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36786]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36787]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/routes/users.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36787]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36789]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/routes/users.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36789]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36795]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36795]
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/victorcaldas/Documents/SGI/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO:     Started server process [36797]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57444 - "OPTIONS /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57445 - "OPTIONS /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57446 - "OPTIONS /api/properties/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjE1MDd9.KidTW0okOI5t2t9WiN6Q1aEjZoLB--4AAtpdNWS-pc4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjE1MDd9.KidTW0okOI5t2t9WiN6Q1aEjZoLB--4AAtpdNWS-pc4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjE1MDd9.KidTW0okOI5t2t9WiN6Q1aEjZoLB--4AAtpdNWS-pc4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57444 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57445 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57446 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57453 - "OPTIONS /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57453 - "POST /api/auth/google HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIxODB9.Dx22pkwRMV6gSWYAoREKdVzshTKenfJJsbxirCj5SfY
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIxODB9.Dx22pkwRMV6gSWYAoREKdVzshTKenfJJsbxirCj5SfY
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIxODB9.Dx22pkwRMV6gSWYAoREKdVzshTKenfJJsbxirCj5SfY
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57453 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57456 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57455 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57458 - "POST /api/auth/google HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIxOTN9.yWiTaeIafPn8iimzj3MJeNs4pUjMoP9aLIoVpgPNF8I
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIxOTN9.yWiTaeIafPn8iimzj3MJeNs4pUjMoP9aLIoVpgPNF8I
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIxOTN9.yWiTaeIafPn8iimzj3MJeNs4pUjMoP9aLIoVpgPNF8I
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57458 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57460 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57461 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57464 - "OPTIONS /api/users/?org_id=2 HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIxOTN9.yWiTaeIafPn8iimzj3MJeNs4pUjMoP9aLIoVpgPNF8I
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57464 - "GET /api/users/?org_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57467 - "OPTIONS /api/users/2 HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+content-type: application/json
+sec-fetch-site: same-site
+origin: http://localhost:5173
+content-length: 19
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+referer: http://localhost:5173/
+sec-fetch-dest: empty
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIxOTN9.yWiTaeIafPn8iimzj3MJeNs4pUjMoP9aLIoVpgPNF8I
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57467 - "PUT /api/users/2 HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIxOTN9.yWiTaeIafPn8iimzj3MJeNs4pUjMoP9aLIoVpgPNF8I
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57467 - "GET /api/users/?org_id=2 HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57469 - "POST /api/auth/google HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIzMTB9.vMBkqTiYDUXfwY6xN47oktWvLiRDaacZN4GsICF81o0
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57469 - "GET /api/contracts/ HTTP/1.1" 401 Unauthorized
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIzMTB9.vMBkqTiYDUXfwY6xN47oktWvLiRDaacZN4GsICF81o0
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIzMTB9.vMBkqTiYDUXfwY6xN47oktWvLiRDaacZN4GsICF81o0
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57471 - "GET /api/clients/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57472 - "GET /api/properties/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57474 - "POST /api/auth/google HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIzMTh9.cMqsXo2PF7qeDq2gmvOEi5ugIAGyG-TRxCtqcd2Z67I
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57474 - "GET /api/contracts/ HTTP/1.1" 401 Unauthorized
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIzMTh9.cMqsXo2PF7qeDq2gmvOEi5ugIAGyG-TRxCtqcd2Z67I
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjIzMTh9.cMqsXo2PF7qeDq2gmvOEi5ugIAGyG-TRxCtqcd2Z67I
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57476 - "GET /api/clients/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57477 - "GET /api/properties/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57479 - "POST /api/auth/google HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57479 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57481 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57482 - "GET /api/properties/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57479 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57481 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57482 - "GET /api/properties/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57479 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57488 - "OPTIONS /api/properties/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+content-type: application/json
+sec-fetch-site: same-site
+origin: http://localhost:5173
+content-length: 269
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+referer: http://localhost:5173/
+sec-fetch-dest: empty
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57488 - "POST /api/properties/ HTTP/1.1" 201 Created
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57488 - "GET /api/properties/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57495 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57497 - "OPTIONS /api/clients/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+content-type: application/json
+sec-fetch-site: same-site
+origin: http://localhost:5173
+content-length: 58
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+referer: http://localhost:5173/
+sec-fetch-dest: empty
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57497 - "POST /api/clients/ HTTP/1.1" 201 Created
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57497 - "GET /api/clients/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+content-type: application/json
+sec-fetch-site: same-site
+origin: http://localhost:5173
+content-length: 60
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+referer: http://localhost:5173/
+sec-fetch-dest: empty
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57499 - "POST /api/clients/ HTTP/1.1" 201 Created
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57499 - "GET /api/clients/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57499 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57500 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57501 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57503 - "OPTIONS /api/contracts/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+content-type: application/json
+sec-fetch-site: same-site
+origin: http://localhost:5173
+content-length: 186
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+referer: http://localhost:5173/
+sec-fetch-dest: empty
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57503 - "POST /api/contracts/ HTTP/1.1" 201 Created
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57503 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57504 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57505 - "GET /api/properties/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57503 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57504 - "GET /api/clients/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwib3JnX2lkIjoxLCJyb2xlIjoic3VwZXJfYWRtaW4iLCJleHAiOjE3NzU3NjIzMjZ9.Iz46EcYimAjT2bVZWrbnppypyEWV2HZo-HsIAK1-6J4
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+INFO:     127.0.0.1:57508 - "GET /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57509 - "GET /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57510 - "GET /api/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57519 - "POST /api/auth/google HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjI1NzZ9.0tfAeDOWI4ypczsLsigeHUR5ectiPTrAtN4apPGe5Bo
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57519 - "GET /api/contracts/ HTTP/1.1" 401 Unauthorized
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjI1NzZ9.0tfAeDOWI4ypczsLsigeHUR5ectiPTrAtN4apPGe5Bo
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjI1NzZ9.0tfAeDOWI4ypczsLsigeHUR5ectiPTrAtN4apPGe5Bo
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57521 - "GET /api/clients/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57522 - "GET /api/properties/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57610 - "OPTIONS /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57610 - "POST /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57610 - "OPTIONS /api/contracts/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57612 - "OPTIONS /api/clients/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57613 - "OPTIONS /api/properties/ HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjMxOTF9.q2bNvnVLy7AV9yc-zqpB2jyJjFe2jd28Sd8X0Hs6oBk
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57610 - "GET /api/contracts/ HTTP/1.1" 401 Unauthorized
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjMxOTF9.q2bNvnVLy7AV9yc-zqpB2jyJjFe2jd28Sd8X0Hs6oBk
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjMxOTF9.q2bNvnVLy7AV9yc-zqpB2jyJjFe2jd28Sd8X0Hs6oBk
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57613 - "GET /api/properties/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57612 - "GET /api/clients/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57623 - "POST /api/auth/google HTTP/1.1" 200 OK
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjMyMDB9.bXYKzPBqPiG4VAnPNcu_JH-Zv2JKfCgwYOWA6T5I4_M
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57623 - "GET /api/contracts/ HTTP/1.1" 401 Unauthorized
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjMyMDB9.bXYKzPBqPiG4VAnPNcu_JH-Zv2JKfCgwYOWA6T5I4_M
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+--- HEADERS RECEIVED ---
+host: localhost:8000
+accept: application/json, text/plain, */*
+origin: http://localhost:5173
+sec-fetch-site: same-site
+sec-fetch-mode: cors
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwib3JnX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzU3NjMyMDB9.bXYKzPBqPiG4VAnPNcu_JH-Zv2JKfCgwYOWA6T5I4_M
+sec-fetch-dest: empty
+referer: http://localhost:5173/
+accept-language: pt-BR,pt;q=0.9
+priority: u=3, i
+accept-encoding: gzip, deflate
+connection: keep-alive
+------------------------
+get_current_user: user not found or inactive. id=2
+INFO:     127.0.0.1:57626 - "GET /api/properties/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57625 - "GET /api/clients/ HTTP/1.1" 401 Unauthorized
