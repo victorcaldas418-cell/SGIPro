@@ -25,10 +25,9 @@ def _run_migrations():
                 conn.commit()
 
 
-_run_migrations()
-
-# Cria as tabelas do SQLite (se ainda nao existirem)
+# Cria as tabelas (se ainda não existirem) antes de rodar migrações
 Base.metadata.create_all(bind=engine)
+_run_migrations()
 
 app = FastAPI(
     title="Sistema de Gestão Imobiliária (SGI)",
