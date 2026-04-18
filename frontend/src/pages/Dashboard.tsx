@@ -42,7 +42,7 @@ export default function Dashboard() {
     totalContracts: 0, activeContracts: 0, totalClients: 0,
     totalProperties: 0, overdueInstallments: 0, overdueAmount: 0, upcomingAdjustments: 0,
   });
-  const [recentContracts, setRecentContracts] = useState<RecentContract[]>([]);
+  const [allContracts, setAllContracts] = useState<RecentContract[]>([]);
   const [clients, setClients] = useState<ClientInfo[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -61,7 +61,7 @@ export default function Dashboard() {
         const properties = propertiesRes.data;
 
         setClients(clientsList);
-        setRecentContracts(contracts.slice(0, 5));
+        setAllContracts(contracts);
 
         // Calcular KPIs reais
         const active = contracts.filter((c: any) => c.status === 'Ativo');
@@ -73,7 +73,6 @@ export default function Dashboard() {
         const currentMonth = new Date().getMonth() + 1;
 
         for (const contract of contracts) {
-          // Parcelas inadimplentes (vencidas e não pagas)
           if (contract.installments) {
             for (const inst of contract.installments) {
               if (inst.status === 'Pendente' && inst.due_date < today) {
@@ -110,6 +109,8 @@ export default function Dashboard() {
 
     fetchDashboard();
   }, []);
+
+  const recentContracts = allContracts.slice(0, 5);
 
   const getClientName = (id: number) => clients.find(c => c.id === id)?.name || `ID ${id}`;
 
@@ -221,54 +222,59 @@ export default function Dashboard() {
         <div className="bg-card border border-border rounded-xl shadow-sm p-6 flex flex-col">
           <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
             <AlertCircle className="w-5 h-5 text-accent" />
-            Parcelas Pendentes
+            Parcelas Pendentes — Mês Atual
           </h2>
           <div className="space-y-3 flex-1">
             {loading ? (
               <p className="text-sm text-muted-foreground py-4 text-center">Carregando...</p>
             ) : (() => {
-              // Coletar todas as parcelas pendentes de todos os contratos
+              const now = new Date();
+              const currentMonth = now.getMonth() + 1;
+              const currentYear = now.getFullYear();
+              const today = now.toISOString().split('T')[0];
+
               const pendingInstallments: Array<{
                 contractId: number;
                 dueDate: string;
                 value: number;
-                status: string;
                 isOverdue: boolean;
               }> = [];
 
-              const today = new Date().toISOString().split('T')[0];
-
-              for (const contract of recentContracts) {
+              for (const contract of allContracts) {
                 if (contract.installments) {
                   for (const inst of contract.installments) {
                     if (inst.status === 'Pendente') {
-                      pendingInstallments.push({
-                        contractId: contract.id,
-                        dueDate: inst.due_date,
-                        value: inst.total_value,
-                        status: inst.status,
-                        isOverdue: inst.due_date < today,
-                      });
+                      const [year, month] = inst.due_date.split('-').map(Number);
+                      if (month === currentMonth && year === currentYear) {
+                        pendingInstallments.push({
+                          contractId: contract.id,
+                          dueDate: inst.due_date,
+                          value: inst.total_value,
+                          isOverdue: inst.due_date < today,
+                        });
+                      }
                     }
                   }
                 }
               }
 
               pendingInstallments.sort((a, b) => a.dueDate.localeCompare(b.dueDate));
-              const display = pendingInstallments.slice(0, 6);
 
-              if (display.length === 0) {
+              if (pendingInstallments.length === 0) {
                 return (
                   <div className="text-center py-8 text-muted-foreground text-sm">
                     <CheckCircle2 className="w-10 h-10 mx-auto mb-2 text-success/40" />
-                    Nenhuma parcela pendente no momento. Tudo em dia!
+                    Nenhuma parcela pendente este mês. Tudo em dia!
                   </div>
                 );
               }
 
-              return display.map((inst, i) => (
-                <div key={i} className={`flex gap-4 p-3 rounded-lg border transition-colors ${inst.isOverdue ? 'bg-destructive/5 border-destructive/20' : 'bg-secondary/40 border-border/50'}`}>
-                  <div className={`absolute left-0 top-0 bottom-0 w-1 ${inst.isOverdue ? 'bg-destructive' : 'bg-accent'}`}></div>
+              return pendingInstallments.map((inst, i) => (
+                <div
+                  key={i}
+                  onClick={() => navigate('/contratos')}
+                  className={`flex gap-4 p-3 rounded-lg border transition-colors cursor-pointer hover:shadow-md ${inst.isOverdue ? 'bg-destructive/5 border-destructive/20 hover:bg-destructive/10' : 'bg-secondary/40 border-border/50 hover:bg-secondary/60'}`}
+                >
                   <div className={`mt-0.5 rounded-full p-1.5 h-fit ${inst.isOverdue ? 'bg-destructive/10 text-destructive' : 'bg-accent/10 text-accent'}`}>
                     {inst.isOverdue ? <AlertTriangle className="w-4 h-4" /> : <Clock className="w-4 h-4" />}
                   </div>

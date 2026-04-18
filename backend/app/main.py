@@ -82,6 +82,7 @@ app.include_router(properties.router, prefix="/api/properties", tags=["Propertie
 app.include_router(contracts.router, prefix="/api/contracts", tags=["Contracts"])
 
 # Novas rotas de autenticação e usuários
-from app.routes import auth, users
+from app.routes import auth, users, settings
 app.include_router(auth.router, prefix="/api/auth", tags=["Auth"])
 app.include_router(users.router, prefix="/api/users", tags=["Users"])
+app.include_router(settings.router, prefix="/api/settings", tags=["Settings"])

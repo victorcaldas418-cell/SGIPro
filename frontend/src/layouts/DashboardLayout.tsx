@@ -90,10 +90,19 @@ const DashboardLayout = () => {
 
         {/* Footer */}
         <div className="p-4 border-t border-border space-y-1">
-          <button className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground transition-all duration-200">
+          <NavLink
+            to="/configuracoes"
+            className={({ isActive }) =>
+              `flex items-center gap-3 px-3 py-2.5 w-full rounded-lg transition-all duration-200 ${
+                isActive
+                  ? 'bg-primary text-primary-foreground font-medium shadow-md shadow-primary/20'
+                  : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+              }`
+            }
+          >
             <Settings className="w-5 h-5" />
             <span>Configurações</span>
-          </button>
+          </NavLink>
           <button
             onClick={handleLogout}
             className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-all duration-200"
