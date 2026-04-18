@@ -227,7 +227,7 @@ export default function UsersPage() {
               <table className="w-full text-sm">
                 <thead className="border-b border-border bg-secondary/40">
                   <tr>
-                    {['Usuário', 'Role', 'Módulos', 'Status', 'Ações'].map(h => (
+                    {['Usuário', 'Tipo', 'Módulos', 'Status', 'Ações'].map(h => (
                       <th key={h} className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{h}</th>
                     ))}
                   </tr>

@@ -321,7 +321,7 @@ export default function ContractDetail() {
   const navigate = useNavigate();
   const { addToast } = useToast();
   const { hasRole } = useAuth();
-  const canAudit = hasRole('admin', 'super_admin');
+  const canAudit = hasRole('super_admin');
   const [contract, setContract] = useState<ContractDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [auditTarget, setAuditTarget] = useState<null | 'contract' | 'andamentos'>(null);

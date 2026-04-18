@@ -27,7 +27,7 @@ interface PropertyOption { id: number; description: string; address: string }
 export default function Contracts() {
   const navigate = useNavigate();
   const { hasRole } = useAuth();
-  const canAudit = hasRole('admin', 'super_admin');
+  const canAudit = hasRole('super_admin');
   const [auditOpen, setAuditOpen] = useState(false);
   const [contracts, setContracts] = useState<Contract[]>([]);
   const [clients, setClients] = useState<ClientOption[]>([]);

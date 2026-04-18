@@ -41,7 +41,7 @@ function onlyDigits(value: string): string {
 // --- Componente ---
 export default function Clients() {
   const { hasRole } = useAuth();
-  const canAudit = hasRole('admin', 'super_admin');
+  const canAudit = hasRole('super_admin');
   const [auditOpen, setAuditOpen] = useState(false);
   const [clients, setClients] = useState<Client[]>([]);
   const [loading, setLoading] = useState(true);

@@ -30,7 +30,7 @@ const inputClass = 'w-full bg-background border border-border rounded-lg px-3 py
 
 export default function Properties() {
   const { hasRole } = useAuth();
-  const canAudit = hasRole('admin', 'super_admin');
+  const canAudit = hasRole('super_admin');
   const [auditOpen, setAuditOpen] = useState(false);
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
