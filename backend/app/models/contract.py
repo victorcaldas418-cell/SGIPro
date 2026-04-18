@@ -55,6 +55,7 @@ class Contract(Base):
     indexes = relationship("ContractIndex", back_populates="contract", cascade="all, delete-orphan")
     installments = relationship("Installment", back_populates="contract", cascade="all, delete-orphan")
     amendments = relationship("ContractAmendment", back_populates="contract", cascade="all, delete-orphan")
+    andamentos = relationship("ContractAndamento", back_populates="contract", cascade="all, delete-orphan")
 
 class ContractIndex(Base):
     """ Índices cadastrados para ver o maior aplicável no reajuste deste contrato """
@@ -108,3 +109,14 @@ class Installment(Base):
     payment_date = Column(Date, nullable=True) # Só preenche quando pago
 
     contract = relationship("Contract", back_populates="installments")
+
+class ContractAndamento(Base):
+    __tablename__ = "contract_andamentos"
+
+    id = Column(Integer, primary_key=True, index=True)
+    contract_id = Column(Integer, ForeignKey("contracts.id"), nullable=False)
+    date = Column(Date, nullable=False)
+    title = Column(String, nullable=False)
+    description = Column(Text, nullable=True)
+
+    contract = relationship("Contract", back_populates="andamentos")

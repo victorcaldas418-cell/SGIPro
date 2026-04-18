@@ -12,6 +12,7 @@ import ResetPassword from './pages/ResetPassword';
 import SelectOrganization from './pages/SelectOrganization';
 import UsersPage from './pages/Users';
 import Settings from './pages/Settings';
+import ContractDetail from './pages/ContractDetail';
 
 /** Protege rotas que exigem autenticação + org selecionada. */
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -80,6 +81,7 @@ function AppRoutes() {
         <Route path="clientes" element={<Clients />} />
         <Route path="imoveis" element={<Properties />} />
         <Route path="contratos" element={<Contracts />} />
+        <Route path="contratos/:id" element={<ContractDetail />} />
         <Route path="financeiro" element={<Financial />} />
         <Route path="usuarios" element={<UsersPage />} />
         <Route path="configuracoes" element={<Settings />} />

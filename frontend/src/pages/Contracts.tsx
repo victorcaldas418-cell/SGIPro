@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Plus, FileText, CheckCircle2, TrendingUp, AlertTriangle, Edit2, Trash2, XCircle } from 'lucide-react';
 import { api } from '../services/api';
 import Modal from '../components/Modal';
@@ -22,6 +23,7 @@ interface ClientOption { id: number; name: string; type: string }
 interface PropertyOption { id: number; description: string; address: string }
 
 export default function Contracts() {
+  const navigate = useNavigate();
   const [contracts, setContracts] = useState<Contract[]>([]);
   const [clients, setClients] = useState<ClientOption[]>([]);
   const [properties, setProperties] = useState<PropertyOption[]>([]);
@@ -173,7 +175,11 @@ export default function Contracts() {
                 <tr><td colSpan={6} className="px-6 py-8 text-center text-muted-foreground">Nenhum contrato cadastrado.</td></tr>
               ) : (
                 contracts.map((contract) => (
-                  <tr key={contract.id} className="hover:bg-secondary/40 group">
+                  <tr
+                    key={contract.id}
+                    onClick={() => navigate(`/contratos/${contract.id}`)}
+                    className="hover:bg-secondary/40 group cursor-pointer"
+                  >
                     <td className="px-6 py-4">
                       <span className={`inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${getStatusStyle(contract.status)}`}>
                         {contract.status === 'Ativo' && <CheckCircle2 className="w-3 h-3 mr-1" />}
@@ -200,7 +206,7 @@ export default function Contracts() {
                         <span className="text-xs border border-border rounded px-1 ml-1">{contract.inflation_index}</span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-right">
+                    <td className="px-6 py-4 text-right" onClick={e => e.stopPropagation()}>
                       <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button
                           onClick={() => handleEdit(contract)}

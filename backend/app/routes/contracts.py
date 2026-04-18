@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 from typing import List
 from dateutil.relativedelta import relativedelta
 from app.database import get_db
-from app.models.contract import Contract, ContractIndex, Installment, ContractStatus
+from app.models.contract import Contract, ContractIndex, Installment, ContractStatus, ContractAndamento
 from app.models.property import Property, PropertyOccupancyStatus
-from app.schemas.contract_schema import ContractCreate, ContractOut, ContractUpdate, InstallmentOut, InstallmentUpdate
+from app.schemas.contract_schema import ContractCreate, ContractOut, ContractUpdate, InstallmentOut, InstallmentUpdate, ContractAndamentoCreate, ContractAndamentoUpdate, ContractAndamentoOut
 from app.core.security import get_current_user, get_current_org_id
 from app.models.user import User
 
@@ -159,3 +159,66 @@ def update_installment(
     db.commit()
     db.refresh(db_installment)
     return db_installment
+
+
+# --- Rotas para Andamentos ---
+@router.post("/{contract_id}/andamentos/", response_model=ContractAndamentoOut, status_code=201)
+def create_andamento(
+    contract_id: int,
+    andamento: ContractAndamentoCreate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+    org_id: int = Depends(get_current_org_id),
+):
+    db_contract = db.query(Contract).filter(Contract.id == contract_id, Contract.organization_id == org_id).first()
+    if not db_contract:
+        raise HTTPException(status_code=404, detail="Contrato não encontrado.")
+    db_andamento = ContractAndamento(contract_id=contract_id, **andamento.model_dump())
+    db.add(db_andamento)
+    db.commit()
+    db.refresh(db_andamento)
+    return db_andamento
+
+
+@router.put("/andamentos/{andamento_id}", response_model=ContractAndamentoOut)
+def update_andamento(
+    andamento_id: int,
+    andamento_update: ContractAndamentoUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+    org_id: int = Depends(get_current_org_id),
+):
+    db_andamento = db.query(ContractAndamento).filter(ContractAndamento.id == andamento_id).first()
+    if not db_andamento:
+        raise HTTPException(status_code=404, detail="Andamento não encontrado.")
+    db_contract = db.query(Contract).filter(
+        Contract.id == db_andamento.contract_id,
+        Contract.organization_id == org_id,
+    ).first()
+    if not db_contract:
+        raise HTTPException(status_code=404, detail="Andamento não encontrado.")
+    for key, value in andamento_update.model_dump(exclude_unset=True).items():
+        setattr(db_andamento, key, value)
+    db.commit()
+    db.refresh(db_andamento)
+    return db_andamento
+
+
+@router.delete("/andamentos/{andamento_id}", status_code=204)
+def delete_andamento(
+    andamento_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+    org_id: int = Depends(get_current_org_id),
+):
+    db_andamento = db.query(ContractAndamento).filter(ContractAndamento.id == andamento_id).first()
+    if not db_andamento:
+        raise HTTPException(status_code=404, detail="Andamento não encontrado.")
+    db_contract = db.query(Contract).filter(
+        Contract.id == db_andamento.contract_id,
+        Contract.organization_id == org_id,
+    ).first()
+    if not db_contract:
+        raise HTTPException(status_code=404, detail="Andamento não encontrado.")
+    db.delete(db_andamento)
+    db.commit()
