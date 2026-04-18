@@ -1,15 +1,30 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 from app.database import get_db
-from app.models.contract import Contract, ContractIndex, Installment
+from app.models.contract import Contract, ContractIndex, Installment, ContractStatus
+from app.models.property import Property, PropertyOccupancyStatus
 from app.schemas.contract_schema import ContractCreate, ContractOut, ContractUpdate, InstallmentOut, InstallmentUpdate
 from app.core.security import get_current_user, get_current_org_id
 from app.models.user import User
 
 router = APIRouter()
+
+
+def sync_property_occupancy(db: Session, property_id: int | None):
+    """Sincroniza o status do imóvel com base nos contratos ativos vinculados."""
+    if not property_id:
+        return
+    prop = db.query(Property).filter(Property.id == property_id).first()
+    if not prop:
+        return
+    has_active = db.query(Contract).filter(
+        Contract.property_id == property_id,
+        Contract.status == ContractStatus.ATIVO
+    ).first() is not None
+    prop.status = PropertyOccupancyStatus.OCUPADO if has_active else PropertyOccupancyStatus.DESOCUPADO
+    db.commit()
 
 
 @router.post("/", response_model=ContractOut, status_code=201)
@@ -47,6 +62,8 @@ def create_contract(
 
     db.commit()
     db.refresh(db_contract)
+
+    sync_property_occupancy(db, db_contract.property_id)
     return db_contract
 
 
@@ -92,6 +109,8 @@ def update_contract(
 
     db.commit()
     db.refresh(db_contract)
+
+    sync_property_occupancy(db, db_contract.property_id)
     return db_contract
 
 
@@ -106,9 +125,11 @@ def delete_contract(
     if not db_contract:
         raise HTTPException(status_code=404, detail="Contrato não encontrado.")
 
+    property_id = db_contract.property_id
     db.delete(db_contract)
     db.commit()
-    return {"ok": True}
+
+    sync_property_occupancy(db, property_id)
 
 
 # --- Rota para Parcelas do Contrato ---
@@ -124,7 +145,6 @@ def update_installment(
     if not db_installment:
         raise HTTPException(status_code=404, detail="Parcela não encontrada.")
 
-    # Valida que a parcela pertence a um contrato da org do usuário
     db_contract = db.query(Contract).filter(
         Contract.id == db_installment.contract_id,
         Contract.organization_id == org_id,
