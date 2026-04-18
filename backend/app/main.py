@@ -4,9 +4,13 @@ import app.models  # Garante que todas as tabelas estão na metadata
 
 
 def _run_migrations():
-    """Adiciona colunas novas em tabelas já existentes (sem Alembic).
-    Tabelas novas são criadas pelo create_all com o schema correto — sem ALTER TABLE.
+    """Adiciona colunas novas em tabelas SQLite já existentes (backfill legado).
+    Apenas necessário para bancos SQLite antigos que não tinham organization_id.
+    Para PostgreSQL (produção), create_all cria todas as colunas direto — sem ALTER TABLE.
     """
+    if not str(engine.url).startswith("sqlite"):
+        return
+
     from sqlalchemy import text
     migrations = [
         ("clients", "organization_id", "INTEGER REFERENCES organizations(id)"),
@@ -15,7 +19,6 @@ def _run_migrations():
     ]
     with engine.connect() as conn:
         for table, column, col_def in migrations:
-            # Pula se a tabela não existir — create_all já a criará com o schema correto
             table_exists = conn.execute(
                 text("SELECT name FROM sqlite_master WHERE type='table' AND name=:t"),
                 {"t": table}
