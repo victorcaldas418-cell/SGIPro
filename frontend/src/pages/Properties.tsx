@@ -29,8 +29,8 @@ function maskCEP(value: string): string {
 const inputClass = 'w-full bg-background border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all';
 
 export default function Properties() {
-  const { hasRole } = useAuth();
-  const canAudit = hasRole('super_admin');
+  const { user } = useAuth();
+  const canAudit = user?.role === 'super_admin';
   const [auditOpen, setAuditOpen] = useState(false);
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
