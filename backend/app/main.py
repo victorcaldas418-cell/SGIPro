@@ -35,6 +35,22 @@ def _run_migrations():
 Base.metadata.create_all(bind=engine)
 _run_migrations()
 
+# Garante que o SUPER_ADMIN e a org master existem (idempotente)
+def _seed_on_startup():
+    from app.database import SessionLocal
+    from app.services.auth_service import seed_super_admin
+    from app.core.config import settings
+    try:
+        db = SessionLocal()
+        result = seed_super_admin(db)
+        db.close()
+        print(f"[STARTUP SEED] {result}")
+    except Exception as e:
+        print(f"[STARTUP SEED ERROR] {type(e).__name__}: {e}")
+    print(f"[STARTUP] GOOGLE_CLIENT_ID configured: {bool(settings.GOOGLE_CLIENT_ID)} (len={len(settings.GOOGLE_CLIENT_ID)})")
+
+_seed_on_startup()
+
 app = FastAPI(
     title="Sistema de Gestão Imobiliária (SGI)",
     description="API robusta para gestão de imóveis, clientes, contratos e financeiro.",

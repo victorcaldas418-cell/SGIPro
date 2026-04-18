@@ -47,7 +47,9 @@ def verify_google_token(token: str) -> Optional[dict]:
             settings.GOOGLE_CLIENT_ID
         )
         return idinfo
-    except Exception:
+    except Exception as e:
+        print(f"[GOOGLE AUTH ERROR] {type(e).__name__}: {e}")
+        print(f"[GOOGLE AUTH ERROR] Expected audience (GOOGLE_CLIENT_ID): {settings.GOOGLE_CLIENT_ID[:30]}...")
         return None
 
 
