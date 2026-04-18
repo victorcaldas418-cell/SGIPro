@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SGI Pro</title>
+    <script>
+      // GitHub Pages SPA redirect: encodes the path into a query param
+      // so index.html can restore it via History API.
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.host + '/SGIPro/' +
+        '?p=/' + l.pathname.slice('/SGIPro/'.length).replace(/&/g, '~and~') +
+        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
