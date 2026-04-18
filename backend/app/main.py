@@ -4,7 +4,10 @@ import app.models  # Garante que todas as tabelas estão na metadata
 
 
 def _run_migrations():
-    """Adiciona colunas novas em tabelas existentes (sem Alembic)."""
+    """Adiciona colunas novas em tabelas já existentes (sem Alembic).
+    Tabelas novas são criadas pelo create_all com o schema correto — sem ALTER TABLE.
+    """
+    from sqlalchemy import text
     migrations = [
         ("clients", "organization_id", "INTEGER REFERENCES organizations(id)"),
         ("properties", "organization_id", "INTEGER REFERENCES organizations(id)"),
@@ -12,16 +15,19 @@ def _run_migrations():
     ]
     with engine.connect() as conn:
         for table, column, col_def in migrations:
-            result = conn.execute(
-                __import__("sqlalchemy").text(f"PRAGMA table_info({table})")
-            )
-            existing_columns = [row[1] for row in result.fetchall()]
+            # Pula se a tabela não existir — create_all já a criará com o schema correto
+            table_exists = conn.execute(
+                text("SELECT name FROM sqlite_master WHERE type='table' AND name=:t"),
+                {"t": table}
+            ).fetchone()
+            if not table_exists:
+                continue
+
+            existing_columns = [
+                row[1] for row in conn.execute(text(f"PRAGMA table_info({table})")).fetchall()
+            ]
             if column not in existing_columns:
-                conn.execute(
-                    __import__("sqlalchemy").text(
-                        f"ALTER TABLE {table} ADD COLUMN {column} {col_def}"
-                    )
-                )
+                conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {column} {col_def}"))
                 conn.commit()
 
 
