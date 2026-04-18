@@ -10,6 +10,8 @@ class IndexType(enum.Enum):
     INPC = "INPC"
 
 class ContractStatus(enum.Enum):
+    EM_ELABORACAO = "Em Elaboração"
+    ENCAMINHADO_ASSINATURA = "Encaminhado para Assinatura"
     ATIVO = "Ativo"
     FINALIZADO = "Finalizado"
     RESCINDIDO = "Rescindido"

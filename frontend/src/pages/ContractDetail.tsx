@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, FileText, User, Home, Calendar, TrendingUp, AlertTriangle,
-  Plus, Edit2, Trash2, CheckCircle2, Clock, Save, X, ChevronDown, ChevronUp
+  Plus, Edit2, Trash2, CheckCircle2, Clock, Save, X, ChevronDown, ChevronUp, Shield
 } from 'lucide-react';
 import { api } from '../services/api';
+import { useToast } from '../contexts/ToastContext';
+import { useAuth } from '../hooks/useAuth';
+import AuditModal from '../components/AuditModal';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -120,9 +123,11 @@ interface AndamentosProps {
   contractId: number;
   andamentos: Andamento[];
   onRefresh: () => void;
+  canAudit?: boolean;
+  onAudit?: () => void;
 }
 
-function AndamentosSection({ contractId, andamentos, onRefresh }: AndamentosProps) {
+function AndamentosSection({ contractId, andamentos, onRefresh, canAudit, onAudit }: AndamentosProps) {
   const [adding, setAdding] = useState(false);
   const [editing, setEditing] = useState<Andamento | null>(null);
   const [form, setForm] = useState({ date: '', title: '', description: '' });
@@ -170,12 +175,22 @@ function AndamentosSection({ contractId, andamentos, onRefresh }: AndamentosProp
 
   return (
     <SectionCard title="Andamentos do Contrato" icon={FileText}>
-      <button
-        onClick={openAdd}
-        className="flex items-center gap-2 text-sm bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-1.5 rounded-lg font-medium transition-colors"
-      >
-        <Plus className="w-4 h-4" /> Novo Andamento
-      </button>
+      <div className="flex flex-wrap items-center gap-2">
+        <button
+          onClick={openAdd}
+          className="flex items-center gap-2 text-sm bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-1.5 rounded-lg font-medium transition-colors"
+        >
+          <Plus className="w-4 h-4" /> Novo Andamento
+        </button>
+        {canAudit && onAudit && (
+          <button
+            onClick={onAudit}
+            className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+          >
+            <Shield className="w-3.5 h-3.5" /> Auditar Andamentos
+          </button>
+        )}
+      </div>
 
       {(adding || editing) && (
         <form onSubmit={handleSave} className="border border-border rounded-lg p-4 space-y-3 bg-secondary/30">
@@ -304,8 +319,12 @@ function InstallmentsSection({ installments }: { installments: Installment[] }) 
 export default function ContractDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { addToast } = useToast();
+  const { hasRole } = useAuth();
+  const canAudit = hasRole('admin', 'super_admin');
   const [contract, setContract] = useState<ContractDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const [auditTarget, setAuditTarget] = useState<null | 'contract' | 'andamentos'>(null);
 
   const fetchContract = async () => {
     try {
@@ -344,8 +363,41 @@ export default function ContractDetail() {
         .filter(Boolean).join(', ')
     : '—';
 
+  const CONTRACT_STATUSES = ['Em Elaboração', 'Encaminhado para Assinatura', 'Ativo', 'Finalizado', 'Rescindido'];
+
+  const handleStatusChange = async (newStatus: string) => {
+    if (newStatus === contract.status) return;
+    try {
+      await api.put(`/contracts/${contract.id}`, { status: newStatus });
+      await fetchContract();
+      addToast(
+        'Andamento lançado automaticamente. Edite-o para incluir mais detalhes.',
+        'info',
+        { label: 'Ver andamentos ↓', onClick: () => document.getElementById('andamentos-section')?.scrollIntoView({ behavior: 'smooth' }) }
+      );
+    } catch {
+      addToast('Erro ao alterar o status do contrato.', 'error');
+    }
+  };
+
   return (
     <div className="space-y-5 animate-fade-in">
+      {/* Audit modals */}
+      <AuditModal
+        isOpen={auditTarget === 'contract'}
+        onClose={() => setAuditTarget(null)}
+        title={`Auditoria — CR-${contract.id.toString().padStart(4, '0')}`}
+        entityType="CONTRACT"
+        entityId={contract.id}
+      />
+      <AuditModal
+        isOpen={auditTarget === 'andamentos'}
+        onClose={() => setAuditTarget(null)}
+        title={`Auditoria de Andamentos — CR-${contract.id.toString().padStart(4, '0')}`}
+        entityType="ANDAMENTO"
+        contractId={contract.id}
+      />
+
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
@@ -364,9 +416,31 @@ export default function ContractDetail() {
             </p>
           </div>
         </div>
-        <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border ${statusStyle(contract.status)}`}>
-          {contract.status}
-        </span>
+        <div className="flex flex-wrap items-center gap-2">
+          {/* Status selector */}
+          <select
+            value={contract.status}
+            onChange={e => handleStatusChange(e.target.value)}
+            className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border cursor-pointer outline-none ${statusStyle(contract.status)} bg-transparent`}
+          >
+            {CONTRACT_STATUSES.map(s => (
+              <option key={s} value={s} className="text-foreground bg-background font-normal normal-case tracking-normal text-sm">
+                {s}
+              </option>
+            ))}
+          </select>
+          {/* Audit buttons */}
+          {canAudit && (
+            <>
+              <button
+                onClick={() => setAuditTarget('contract')}
+                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <Shield className="w-3.5 h-3.5" /> Auditar Contrato
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
       {/* KPI strip */}
@@ -463,11 +537,15 @@ export default function ContractDetail() {
       </SectionCard>
 
       {/* Andamentos */}
-      <AndamentosSection
-        contractId={contract.id}
-        andamentos={contract.andamentos}
-        onRefresh={fetchContract}
-      />
+      <div id="andamentos-section">
+        <AndamentosSection
+          contractId={contract.id}
+          andamentos={contract.andamentos}
+          onRefresh={fetchContract}
+          canAudit={canAudit}
+          onAudit={() => setAuditTarget('andamentos')}
+        />
+      </div>
 
       {/* Parcelas */}
       <InstallmentsSection installments={contract.installments} />

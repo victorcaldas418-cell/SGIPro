@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, FileText, CheckCircle2, TrendingUp, AlertTriangle, Edit2, Trash2, XCircle } from 'lucide-react';
+import { Plus, FileText, CheckCircle2, TrendingUp, AlertTriangle, Edit2, Trash2, XCircle, Shield } from 'lucide-react';
 import { api } from '../services/api';
 import Modal from '../components/Modal';
+import AuditModal from '../components/AuditModal';
+import { useAuth } from '../hooks/useAuth';
 
-type ContractStatus = 'Ativo' | 'Finalizado' | 'Rescindido';
+type ContractStatus = 'Em Elaboração' | 'Encaminhado para Assinatura' | 'Ativo' | 'Finalizado' | 'Rescindido';
 
 interface Contract {
   id: number;
@@ -24,6 +26,9 @@ interface PropertyOption { id: number; description: string; address: string }
 
 export default function Contracts() {
   const navigate = useNavigate();
+  const { hasRole } = useAuth();
+  const canAudit = hasRole('admin', 'super_admin');
+  const [auditOpen, setAuditOpen] = useState(false);
   const [contracts, setContracts] = useState<Contract[]>([]);
   const [clients, setClients] = useState<ClientOption[]>([]);
   const [properties, setProperties] = useState<PropertyOption[]>([]);
@@ -33,7 +38,7 @@ export default function Contracts() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<Partial<Contract>>({
     locador_id: 0, locatario_id: 0, property_id: 0,
-    base_rent_value: 0, status: 'Ativo', adjustment_month: 1, inflation_index: 'IGPM'
+    base_rent_value: 0, status: 'Em Elaboração', adjustment_month: 1, inflation_index: 'IGPM'
   });
 
   const isEditing = !!formData.id;
@@ -63,7 +68,7 @@ export default function Contracts() {
       locador_id: clients.length > 0 ? clients[0].id : 0,
       locatario_id: clients.length > 0 ? clients[0].id : 0,
       property_id: properties.length > 0 ? properties[0].id : 0,
-      base_rent_value: 0, status: 'Ativo', adjustment_month: 1, inflation_index: 'IGPM'
+      base_rent_value: 0, status: 'Em Elaboração', adjustment_month: 1, inflation_index: 'IGPM'
     });
     setIsModalOpen(true);
   };
@@ -131,6 +136,8 @@ export default function Contracts() {
 
   const getStatusStyle = (status: ContractStatus) => {
     switch (status) {
+      case 'Em Elaboração': return 'bg-amber-500/10 text-amber-600';
+      case 'Encaminhado para Assinatura': return 'bg-blue-500/10 text-blue-600';
       case 'Ativo': return 'bg-success/10 text-success';
       case 'Finalizado': return 'bg-muted text-muted-foreground';
       case 'Rescindido': return 'bg-destructive/10 text-destructive';
@@ -150,9 +157,19 @@ export default function Contracts() {
           </h1>
           <p className="text-muted-foreground mt-1 text-sm">Controle locações, aditivos, reajustes anuais e histórico financeiro.</p>
         </div>
-        <button onClick={handleOpenModal} className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg font-medium shadow-md shadow-primary/20 flex items-center gap-2">
-          <Plus className="w-4 h-4" /> Cadastrar Contrato
-        </button>
+        <div className="flex items-center gap-2">
+          {canAudit && (
+            <button
+              onClick={() => setAuditOpen(true)}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors font-medium text-sm"
+            >
+              <Shield className="w-4 h-4" /> Auditar Contratos
+            </button>
+          )}
+          <button onClick={handleOpenModal} className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg font-medium shadow-md shadow-primary/20 flex items-center gap-2">
+            <Plus className="w-4 h-4" /> Cadastrar Contrato
+          </button>
+        </div>
       </div>
 
       <div className="bg-card glass border border-border rounded-xl shadow-sm overflow-hidden">
@@ -241,6 +258,13 @@ export default function Contracts() {
         </div>
       </div>
 
+      <AuditModal
+        isOpen={auditOpen}
+        onClose={() => setAuditOpen(false)}
+        title="Auditoria de Contratos"
+        entityType="CONTRACT"
+      />
+
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={isEditing ? 'Editar Contrato' : 'Vincular Novo Contrato'}>
         <form onSubmit={handleSubmit} className="space-y-4">
           {isEditing ? (
@@ -249,6 +273,8 @@ export default function Contracts() {
               <div className="col-span-2">
                 <label className="block text-sm font-medium text-foreground mb-1">Status</label>
                 <select name="status" value={formData.status} onChange={handleInputChange} className="w-full bg-background border border-border rounded-lg px-3 py-2 text-foreground focus:ring-1 focus:ring-primary outline-none">
+                  <option value="Em Elaboração">Em Elaboração</option>
+                  <option value="Encaminhado para Assinatura">Encaminhado para Assinatura</option>
                   <option value="Ativo">Ativo</option>
                   <option value="Finalizado">Finalizado</option>
                   <option value="Rescindido">Rescindido</option>

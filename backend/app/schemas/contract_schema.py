@@ -122,7 +122,7 @@ class ContractBase(BaseModel):
     subunit_id: Optional[int] = None
     start_date: date
     end_date: date
-    status: ContractStatus = ContractStatus.ATIVO
+    status: ContractStatus = ContractStatus.EM_ELABORACAO
     base_rent_value: float
     adjustment_month: int
     adjustment_min_percentage: float = 0.0

@@ -1,19 +1,24 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
+from datetime import date
 from dateutil.relativedelta import relativedelta
 from app.database import get_db
-from app.models.contract import Contract, ContractIndex, Installment, ContractStatus, ContractAndamento
+from app.models.contract import Contract, ContractIndex, ContractAndamento, Installment, ContractStatus
 from app.models.property import Property, PropertyOccupancyStatus
-from app.schemas.contract_schema import ContractCreate, ContractOut, ContractUpdate, InstallmentOut, InstallmentUpdate, ContractAndamentoCreate, ContractAndamentoUpdate, ContractAndamentoOut
+from app.schemas.contract_schema import (
+    ContractCreate, ContractOut, ContractUpdate,
+    InstallmentOut, InstallmentUpdate,
+    ContractAndamentoCreate, ContractAndamentoUpdate, ContractAndamentoOut,
+)
 from app.core.security import get_current_user, get_current_org_id
 from app.models.user import User
+from app.services.audit_service import log_audit
 
 router = APIRouter()
 
 
 def sync_property_occupancy(db: Session, property_id: int | None):
-    """Sincroniza o status do imóvel com base nos contratos ativos vinculados."""
     if not property_id:
         return
     prop = db.query(Property).filter(Property.id == property_id).first()
@@ -60,10 +65,21 @@ def create_contract(
         db.add(installment)
         current_date += relativedelta(months=1)
 
+    db.add(ContractAndamento(
+        contract_id=db_contract.id,
+        date=date.today(),
+        title=f"Contrato criado com status '{db_contract.status.value}'",
+        description="Andamento gerado automaticamente no cadastro do contrato.",
+    ))
+
     db.commit()
     db.refresh(db_contract)
 
     sync_property_occupancy(db, db_contract.property_id)
+
+    log_audit(db, org_id, current_user, "CONTRACT", "CRIAR",
+              f"Contrato CR-{db_contract.id:04d} criado com status '{db_contract.status.value}'.",
+              entity_id=db_contract.id)
     return db_contract
 
 
@@ -104,11 +120,32 @@ def update_contract(
         raise HTTPException(status_code=404, detail="Contrato não encontrado.")
 
     update_data = contract_update.model_dump(exclude_unset=True)
+    old_status = db_contract.status
+
     for key, value in update_data.items():
         setattr(db_contract, key, value)
 
     db.commit()
     db.refresh(db_contract)
+
+    new_status = db_contract.status
+
+    if "status" in update_data and old_status != new_status:
+        db.add(ContractAndamento(
+            contract_id=db_contract.id,
+            date=date.today(),
+            title=f"Status alterado: {old_status.value} → {new_status.value}",
+            description="Andamento gerado automaticamente. Edite para incluir mais detalhes.",
+        ))
+        db.commit()
+        db.refresh(db_contract)
+
+        log_audit(db, org_id, current_user, "CONTRACT", "STATUS",
+                  f"Status do contrato CR-{contract_id:04d} alterado de '{old_status.value}' para '{new_status.value}'.",
+                  entity_id=contract_id)
+    else:
+        log_audit(db, org_id, current_user, "CONTRACT", "ATUALIZAR",
+                  f"Contrato CR-{contract_id:04d} atualizado.", entity_id=contract_id)
 
     sync_property_occupancy(db, db_contract.property_id)
     return db_contract
@@ -126,13 +163,16 @@ def delete_contract(
         raise HTTPException(status_code=404, detail="Contrato não encontrado.")
 
     property_id = db_contract.property_id
+    log_audit(db, org_id, current_user, "CONTRACT", "EXCLUIR",
+              f"Contrato CR-{contract_id:04d} excluído.", entity_id=contract_id)
+
     db.delete(db_contract)
     db.commit()
 
     sync_property_occupancy(db, property_id)
 
 
-# --- Rota para Parcelas do Contrato ---
+# --- Parcelas ---
 @router.put("/installments/{installment_id}", response_model=InstallmentOut)
 def update_installment(
     installment_id: int,
@@ -153,15 +193,24 @@ def update_installment(
         raise HTTPException(status_code=404, detail="Parcela não encontrada.")
 
     update_data = inst_update.model_dump(exclude_unset=True)
+    old_status = db_installment.status
+
     for key, value in update_data.items():
         setattr(db_installment, key, value)
 
     db.commit()
     db.refresh(db_installment)
+
+    if "status" in update_data and old_status != db_installment.status:
+        log_audit(db, org_id, current_user, "INSTALLMENT", "PAGAMENTO",
+                  f"Parcela {db_installment.reference_month:02d}/{db_installment.reference_year} do contrato "
+                  f"CR-{db_installment.contract_id:04d} alterada de '{old_status.value}' para '{db_installment.status.value}'.",
+                  entity_id=db_installment.id, contract_id=db_installment.contract_id)
+
     return db_installment
 
 
-# --- Rotas para Andamentos ---
+# --- Andamentos ---
 @router.post("/{contract_id}/andamentos/", response_model=ContractAndamentoOut, status_code=201)
 def create_andamento(
     contract_id: int,
@@ -177,6 +226,10 @@ def create_andamento(
     db.add(db_andamento)
     db.commit()
     db.refresh(db_andamento)
+
+    log_audit(db, org_id, current_user, "ANDAMENTO", "CRIAR",
+              f"Andamento '{db_andamento.title}' adicionado ao contrato CR-{contract_id:04d}.",
+              entity_id=db_andamento.id, contract_id=contract_id)
     return db_andamento
 
 
@@ -197,10 +250,16 @@ def update_andamento(
     ).first()
     if not db_contract:
         raise HTTPException(status_code=404, detail="Andamento não encontrado.")
+
     for key, value in andamento_update.model_dump(exclude_unset=True).items():
         setattr(db_andamento, key, value)
+
     db.commit()
     db.refresh(db_andamento)
+
+    log_audit(db, org_id, current_user, "ANDAMENTO", "ATUALIZAR",
+              f"Andamento '{db_andamento.title}' do contrato CR-{db_andamento.contract_id:04d} atualizado.",
+              entity_id=db_andamento.id, contract_id=db_andamento.contract_id)
     return db_andamento
 
 
@@ -220,5 +279,12 @@ def delete_andamento(
     ).first()
     if not db_contract:
         raise HTTPException(status_code=404, detail="Andamento não encontrado.")
+
+    title = db_andamento.title
+    cid = db_andamento.contract_id
+    log_audit(db, org_id, current_user, "ANDAMENTO", "EXCLUIR",
+              f"Andamento '{title}' do contrato CR-{cid:04d} excluído.",
+              entity_id=andamento_id, contract_id=cid)
+
     db.delete(db_andamento)
     db.commit()

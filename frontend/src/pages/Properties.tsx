@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Plus, Search, Edit2, Trash2, Home, Building, Loader2 } from 'lucide-react';
+import { Plus, Search, Edit2, Trash2, Home, Building, Loader2, Shield } from 'lucide-react';
 import { api } from '../services/api';
 import Modal from '../components/Modal';
+import AuditModal from '../components/AuditModal';
+import { useAuth } from '../hooks/useAuth';
 
 type PropertyOccupancyStatus = 'Ocupado' | 'Desocupado';
 
@@ -27,6 +29,9 @@ function maskCEP(value: string): string {
 const inputClass = 'w-full bg-background border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all';
 
 export default function Properties() {
+  const { hasRole } = useAuth();
+  const canAudit = hasRole('admin', 'super_admin');
+  const [auditOpen, setAuditOpen] = useState(false);
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -166,11 +171,26 @@ export default function Properties() {
               onChange={e => setSearch(e.target.value)}
               className="w-64 rounded-lg bg-card border border-border pl-9 pr-4 py-2 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none" />
           </div>
+          {canAudit && (
+            <button
+              onClick={() => setAuditOpen(true)}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors font-medium text-sm"
+            >
+              <Shield className="w-4 h-4" /> Auditar Imóveis
+            </button>
+          )}
           <button onClick={handleOpenModal} className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg font-medium shadow-md shadow-primary/20 flex items-center gap-2 transition-colors">
             <Plus className="w-4 h-4" /> Novo Imóvel
           </button>
         </div>
       </div>
+
+      <AuditModal
+        isOpen={auditOpen}
+        onClose={() => setAuditOpen(false)}
+        title="Auditoria de Imóveis"
+        entityType="PROPERTY"
+      />
 
       {/* Tabela */}
       <div className="bg-card glass border border-border rounded-xl shadow-sm overflow-hidden">

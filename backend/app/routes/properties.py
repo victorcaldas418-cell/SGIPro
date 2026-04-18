@@ -6,6 +6,7 @@ from app.models.property import Property, SubUnit, ServiceAccount
 from app.schemas.property_schema import PropertyCreate, PropertyOut, PropertyUpdate
 from app.core.security import get_current_user, get_current_org_id
 from app.models.user import User
+from app.services.audit_service import log_audit
 
 router = APIRouter()
 
@@ -39,6 +40,8 @@ def create_property(
         db.commit()
         db.refresh(db_prop)
 
+    log_audit(db, org_id, current_user, "PROPERTY", "CRIAR",
+              f"Imóvel '{db_prop.description}' cadastrado.", entity_id=db_prop.id)
     return db_prop
 
 
@@ -50,8 +53,7 @@ def list_properties(
     current_user: User = Depends(get_current_user),
     org_id: int = Depends(get_current_org_id),
 ):
-    properties = db.query(Property).filter(Property.organization_id == org_id).offset(skip).limit(limit).all()
-    return properties
+    return db.query(Property).filter(Property.organization_id == org_id).offset(skip).limit(limit).all()
 
 
 @router.get("/{property_id}", response_model=PropertyOut)
@@ -85,6 +87,9 @@ def update_property(
 
     db.commit()
     db.refresh(db_prop)
+
+    log_audit(db, org_id, current_user, "PROPERTY", "ATUALIZAR",
+              f"Imóvel '{db_prop.description}' atualizado.", entity_id=db_prop.id)
     return db_prop
 
 
@@ -99,6 +104,9 @@ def delete_property(
     if not db_prop:
         raise HTTPException(status_code=404, detail="Imóvel não encontrado.")
 
+    desc = db_prop.description
     db.delete(db_prop)
     db.commit()
-    return {"ok": True}
+
+    log_audit(db, org_id, current_user, "PROPERTY", "EXCLUIR",
+              f"Imóvel '{desc}' (ID {property_id}) excluído.", entity_id=property_id)

@@ -4,11 +4,22 @@ import app.models  # Garante que todas as tabelas estão na metadata
 
 
 def _run_migrations():
-    """Adiciona colunas novas em tabelas SQLite já existentes (backfill legado).
-    Apenas necessário para bancos SQLite antigos que não tinham organization_id.
-    Para PostgreSQL (produção), create_all cria todas as colunas direto — sem ALTER TABLE.
-    """
-    if not str(engine.url).startswith("sqlite"):
+    """Adiciona colunas/valores novos sem perder dados existentes."""
+    db_url = str(engine.url)
+
+    # Migração PostgreSQL: adiciona novos valores ao enum contractstatus
+    if not db_url.startswith("sqlite"):
+        from sqlalchemy import text
+        new_values = ["Em Elaboração", "Encaminhado para Assinatura"]
+        with engine.connect().execution_options(isolation_level="AUTOCOMMIT") as conn:
+            for val in new_values:
+                try:
+                    conn.execute(text(f"ALTER TYPE contractstatus ADD VALUE IF NOT EXISTS '{val}'"))
+                except Exception as e:
+                    print(f"[MIGRATION PG] enum note: {e}")
+        return
+
+    if not db_url.startswith("sqlite"):
         return
 
     from sqlalchemy import text
@@ -85,7 +96,8 @@ app.include_router(properties.router, prefix="/api/properties", tags=["Propertie
 app.include_router(contracts.router, prefix="/api/contracts", tags=["Contracts"])
 
 # Novas rotas de autenticação e usuários
-from app.routes import auth, users, settings
+from app.routes import auth, users, settings, audit
 app.include_router(auth.router, prefix="/api/auth", tags=["Auth"])
 app.include_router(users.router, prefix="/api/users", tags=["Users"])
 app.include_router(settings.router, prefix="/api/settings", tags=["Settings"])
+app.include_router(audit.router, prefix="/api/audit", tags=["Audit"])
