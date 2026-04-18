@@ -1,0 +1,38 @@
+# ── Environment & Secrets ────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+# Keep only the template committed
+!.env.example
+
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── Backend – never expose these ──────────────────────────────────────────────
+backend/.env
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+backend/server.log
+backend/venv/
+
+# ── Frontend – build artefacts & deps ─────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── IDE / Editor ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Claude Code ───────────────────────────────────────────────────────────────
+.claude/
